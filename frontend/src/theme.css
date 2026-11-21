@@ -1,0 +1,216 @@
+:root {
+  color-scheme: light;
+  --cb-page: #f8fafc;
+  --cb-surface: #ffffff;
+  --cb-surface-raised: #ffffff;
+  --cb-surface-muted: #f1f5f9;
+  --cb-canvas-backdrop: #f1f5f9;
+  --cb-canvas-dot: #cbd5e1;
+  --cb-text: #172033;
+  --cb-text-soft: #334155;
+  --cb-muted: #64748b;
+  --cb-faint: #94a3b8;
+  --cb-border: #e2e8f0;
+  --cb-border-strong: #cbd5e1;
+  --cb-accent: #0f766e;
+  --cb-accent-hover: #115e59;
+  --cb-accent-soft: #ccfbf1;
+  --cb-accent-text: #0f766e;
+  --cb-focus: #0f766e;
+  --cb-shadow: 0 8px 24px rgb(15 23 42 / 8%);
+  --cb-overlay: rgb(248 250 252 / 88%);
+  background: var(--cb-page);
+  color: var(--cb-text);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cb-page: #111827;
+  --cb-surface: #1f2937;
+  --cb-surface-raised: #263244;
+  --cb-surface-muted: #202b3a;
+  --cb-canvas-backdrop: #17202e;
+  --cb-canvas-dot: #384454;
+  --cb-text: #f3f4f6;
+  --cb-text-soft: #d1d5db;
+  --cb-muted: #a1aab8;
+  --cb-faint: #8995a6;
+  --cb-border: #374151;
+  --cb-border-strong: #4b5563;
+  --cb-accent: #0f766e;
+  --cb-accent-hover: #0d9488;
+  --cb-accent-soft: #134e4a;
+  --cb-accent-text: #5eead4;
+  --cb-focus: #5eead4;
+  --cb-shadow: 0 12px 28px rgb(0 0 0 / 25%);
+  --cb-overlay: rgb(17 24 39 / 88%);
+  background: var(--cb-page);
+  color: var(--cb-text);
+}
+
+html, body, #root { min-height: 100%; background: var(--cb-page); color: var(--cb-text); }
+body { color: var(--cb-text); }
+::selection { background: var(--cb-accent-soft); color: var(--cb-text); }
+
+button, a, input, textarea, select { accent-color: var(--cb-accent); }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--cb-focus);
+  outline-offset: 2px;
+}
+input::placeholder, textarea::placeholder { color: var(--cb-faint); opacity: 1; }
+
+.app-shell, .dashboard { background: var(--cb-page); color: var(--cb-text); }
+.topbar, .roombar, .toolrail, .right-panel, .canvas-toolbar, .board-modes,
+.diagram-toolbar, .kanban-column, .auth-card, .board-card, .join-form,
+.board-search, .room-chat, .room-chat-header, .room-chat-bottom,
+.canvas-text-dialog, .canvas-text-actions button, .kanban-task,
+.diagram-toolbar button {
+  border-color: var(--cb-border);
+  background-color: var(--cb-surface);
+  color: var(--cb-text);
+}
+.app-shell .topbar, .app-shell .roombar, .app-shell .canvas-toolbar,
+.app-shell .board-modes, .app-shell .right-panel { background-color: var(--cb-surface); }
+.brand, .board-title-text, .board-name input, .roombar strong, .tool-label,
+.panel-title, .setting-value, .auth-card h1, .auth-card label,
+.dash-hero h1, .board-section-head h2, .board-card-title,
+.kanban-column-header h2, .room-chat-heading strong,
+.room-chat-message p, .canvas-text-dialog h2, .canvas-text-dialog p {
+  color: var(--cb-text);
+}
+.brand>span:last-child, .room-status, .presence, .stroke-controls,
+.canvas-footer, .mode-save-state, .diagram-toolbar>span,
+.right-panel label, .helper-text, .auth-card>p, .auth-switch,
+.dash-hero p, .board-section-head p, .board-card-meta,
+.board-card-foot, .kanban-assignee, .room-chat-heading span,
+.room-chat-empty, .room-chat-message-meta time, .room-chat-compose-footer span {
+  color: var(--cb-muted);
+}
+
+.button:not(.primary), .theme-toggle, .title-action, .tool,
+.diagram-toolbar button, .canvas-text-actions button:not(.primary) {
+  border-color: var(--cb-border-strong);
+  background: var(--cb-surface);
+  color: var(--cb-text-soft);
+}
+.button:not(.primary):hover, .theme-toggle:hover, .title-action:hover,
+.diagram-toolbar button:hover, .diagram-toolbar button.active,
+.tool:hover, .board-mode-tab:hover {
+  border-color: var(--cb-accent);
+  background: var(--cb-accent-soft);
+  color: var(--cb-accent-text);
+}
+.button.primary, .kanban-add-form button, .canvas-text-actions button.primary {
+  border-color: var(--cb-accent);
+  background: var(--cb-accent);
+  color: #fff;
+  box-shadow: none;
+}
+.button.primary:hover, .kanban-add-form button:hover, .canvas-text-actions button.primary:hover {
+  border-color: var(--cb-accent-hover);
+  background: var(--cb-accent-hover);
+}
+.button:disabled, button:disabled { cursor: not-allowed; }
+.button:disabled:not(.primary), button:disabled:not(.primary) { opacity: .55; }
+.brand-icon, .export-tool, .auth-switch button { color: var(--cb-accent-text); }
+.tool.active, .mobile-tools button.active, .board-mode-tab.active {
+  border-color: var(--cb-accent-soft);
+  background: var(--cb-accent-soft);
+  color: var(--cb-accent-text);
+}
+.board-mode-tab { color: var(--cb-muted); }
+.board-mode-tab.active { border-color: var(--cb-border); }
+.eyebrow, .section-kicker { color: var(--cb-muted); }
+
+.canvas-wrap, .diagram-panel, .kanban-board { background-color: var(--cb-canvas-backdrop); }
+.canvas-wrap { background-image: radial-gradient(var(--cb-canvas-dot) 1px, transparent 1px); }
+.canvas-viewport { border-color: var(--cb-border); background: #fff; }
+.empty-icon, .auth-mark, .user-avatar, .member-avatar {
+  border-color: var(--cb-border);
+  background: var(--cb-accent-soft);
+  color: var(--cb-accent-text);
+}
+.right-panel, .toolrail { border-color: var(--cb-border); }
+.panel-divider, .rail-separator { background: var(--cb-border); }
+.swatches button.chosen { outline-color: var(--cb-accent); }
+.stroke-controls input[type="color"] { border-color: var(--cb-border-strong); background: var(--cb-surface); }
+
+.auth-screen { background: var(--cb-page); color: var(--cb-text); }
+.auth-card { box-shadow: var(--cb-shadow); }
+.auth-card input, .join-form input, .board-search, .join-box input,
+.kanban-add-form input, .kanban-assignee select, .kanban-task-title,
+.kanban-task textarea, .room-chat-compose textarea,
+.canvas-text-dialog textarea {
+  border-color: var(--cb-border-strong);
+  background-color: var(--cb-surface);
+  color: var(--cb-text);
+}
+.join-form button, .join-box button { color: var(--cb-accent-text); }
+.auth-card input:focus, .room-chat-compose textarea:focus,
+.canvas-text-dialog textarea:focus { border-color: var(--cb-focus); box-shadow: 0 0 0 3px color-mix(in srgb, var(--cb-focus) 18%, transparent); }
+.auth-submit:disabled, .kanban-add-form button:disabled { opacity: .5; }
+.auth-error, .dashboard-error { background: #fff1f0; border-color: #ffdedb; color: #a6372f; }
+html[data-theme="dark"] .auth-error, html[data-theme="dark"] .dashboard-error { background: #442b31; border-color: #633840; color: #ffc2bd; }
+.dashboard { background: var(--cb-page); }
+.dash-hero { border-color: var(--cb-border); background: var(--cb-surface-muted); }
+.board-card { box-shadow: none; }
+.board-card:hover { box-shadow: var(--cb-shadow); }
+.board-card-open, .join-form button { background: var(--cb-surface); color: var(--cb-text); }
+.board-thumb { background-color: var(--cb-surface-muted); background-image: radial-gradient(var(--cb-canvas-dot) 1px, transparent 1px); color: var(--cb-accent-text); }
+.board-section-head h2 span { background: var(--cb-surface-muted); color: var(--cb-muted); }
+.access-pill { background: var(--cb-accent-soft); color: var(--cb-accent-text); }
+.empty-dashboard, .empty-dashboard h2 { color: var(--cb-muted); }
+.member-row { border-color: var(--cb-border); }
+.member-row b { color: var(--cb-text); }
+.member-row small { color: var(--cb-muted); }
+.title-edit-button { color: var(--cb-muted); }
+.board-name input { background: transparent; }
+.title-action.save-title { border-color: var(--cb-accent); background: var(--cb-accent); color: #fff; }
+.share-button { color: var(--cb-text-soft); }
+
+.diagram-toolbar { border-color: var(--cb-border); }
+.diagram-add-actions button { color: var(--cb-text-soft); }
+.diagram-node-delete { border-color: var(--cb-border); background: var(--cb-surface); color: #b4535e; }
+.diagram-graph { border-color: var(--cb-border); }
+.kanban-column { background: var(--cb-surface-muted); }
+.kanban-task { box-shadow: none; }
+.kanban-task-title { background: transparent; }
+.kanban-task textarea { color: var(--cb-text-soft); }
+.kanban-column-header>span { background: var(--cb-surface-muted); color: var(--cb-muted); }
+.kanban-drop-hint, .diagram-empty { color: var(--cb-muted); }
+
+.room-chat { border-color: var(--cb-border); background: var(--cb-surface); box-shadow: var(--cb-shadow); }
+.room-chat-header, .room-chat-bottom { border-color: var(--cb-border); background: var(--cb-surface); }
+.room-chat-header-actions button { background: var(--cb-surface-muted); color: var(--cb-text-soft); }
+.room-chat-header-actions button:hover { background: var(--cb-border); }
+.room-chat-message { border-color: var(--cb-border); background: var(--cb-surface-muted); }
+.room-chat-message.mine { border-color: var(--cb-accent-soft); background: var(--cb-accent-soft); }
+.room-chat-message-meta { color: var(--cb-text-soft); }
+.room-chat-compose textarea:disabled { background: var(--cb-surface-muted); }
+.chat-unread { border-color: var(--cb-surface); }
+.room-chat-error { color: #b3413a; }
+.room-chat-offline { background: #fff7e6; color: #8a5b11; }
+
+.canvas-connect-overlay { background: var(--cb-overlay); color: var(--cb-text-soft); }
+.canvas-connect-overlay strong { color: var(--cb-text); }
+.canvas-text-backdrop { background: color-mix(in srgb, var(--cb-page) 58%, transparent); }
+.canvas-text-dialog { border-color: var(--cb-border); background: var(--cb-surface); box-shadow: var(--cb-shadow); }
+.canvas-text-dialog.sticky-dialog { border-color: #e8d778; background: #fff9d8; }
+.canvas-text-dialog.sticky-dialog h2, .canvas-text-dialog.sticky-dialog p { color: #263247; }
+.canvas-text-actions button { border-color: var(--cb-border-strong); background: var(--cb-surface); color: var(--cb-text); }
+.mobile-tools { border-color: var(--cb-border); background: var(--cb-surface); }
+.mobile-tools button { background: var(--cb-surface); color: var(--cb-muted); }
+.status-dot.live { box-shadow: 0 0 0 3px var(--cb-accent-soft); }
+.landing-navigation.is-open { border-color: var(--cb-border); background: var(--cb-surface); box-shadow: var(--cb-shadow); }
+.landing-menu-button { border-color: var(--cb-border-strong); background: var(--cb-surface-muted); }
+.landing-menu-button span { background: var(--cb-text-soft); }
+.diagram-toolbar button:hover, .diagram-toolbar button.active { border-color: var(--cb-accent); background: var(--cb-accent-soft); color: var(--cb-accent-text); }
+.board-mode-tab:hover { color: var(--cb-accent-text); }
+.join-form button:hover, .join-box button:hover { background: var(--cb-accent-soft); color: var(--cb-accent-text); }
+.title-edit-button:hover { background: var(--cb-accent-soft); color: var(--cb-accent-text); }
+.board-card-open:hover .board-card-title { color: var(--cb-accent-text); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

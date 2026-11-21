@@ -1,0 +1,3 @@
+package com.collabboard.membership;
+import org.springframework.data.jpa.repository.JpaRepository;import org.springframework.data.jpa.repository.EntityGraph;import java.util.*;
+public interface BoardMemberRepository extends JpaRepository<BoardMember,String>{boolean existsByRoom_RoomIdAndUser_Id(String roomId,String userId);Optional<BoardMember> findByRoom_RoomIdAndUser_Id(String roomId,String userId);@EntityGraph(attributePaths={"user"})List<BoardMember> findByRoom_RoomId(String roomId);@EntityGraph(attributePaths={"room","room.owner"})List<BoardMember> findByUser_Id(String userId);void deleteByRoom_RoomIdAndUser_Id(String roomId,String userId);}

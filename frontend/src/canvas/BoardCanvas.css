@@ -1,0 +1,115 @@
+.canvas-viewport {
+  position: relative;
+  overflow: auto !important;
+}
+
+
+.canvas-viewport.canvas-disabled {
+  cursor: progress;
+}
+
+.canvas-connect-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  color: #525a68;
+  text-align: center;
+  background: rgb(255 255 255 / 88%);
+}
+
+.canvas-connect-overlay strong {
+  color: #263247;
+  font-size: 15px;
+}
+
+.canvas-connect-overlay span {
+  max-width: 360px;
+  font-size: 13px;
+}
+
+.canvas-text-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgb(20 27 43 / 42%);
+}
+
+.canvas-text-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(480px, 100%);
+  padding: 24px;
+  border: 1px solid #e2e6ef;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgb(20 27 43 / 24%);
+}
+
+.canvas-text-dialog.sticky-dialog {
+  border-color: #e8d778;
+  background: #fff9d8;
+}
+
+.canvas-text-dialog h2,
+.canvas-text-dialog p {
+  margin: 0;
+}
+
+.canvas-text-dialog h2 {
+  color: #263247;
+  font-size: 18px;
+}
+
+.canvas-text-dialog p {
+  color: #687286;
+  font-size: 13px;
+}
+
+.canvas-text-dialog textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 160px;
+  padding: 12px;
+  border: 1px solid #cfd5e2;
+  border-radius: 9px;
+  outline-color: #5965e5;
+  background: #fff;
+  color: #263247;
+  font: inherit;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.canvas-text-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.canvas-text-actions button {
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid #d6dbe6;
+  border-radius: 8px;
+  background: #fff;
+  color: #263247;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.canvas-text-actions button.primary {
+  border-color: #4855dd;
+  background: #4855dd;
+  color: #fff;
+}

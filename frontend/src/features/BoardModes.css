@@ -1,0 +1,84 @@
+.board-modes {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 5px 16px;
+  border-bottom: 1px solid #e7e9ed;
+  background: #fff;
+}
+
+.workspace.flowchart-mode,
+.workspace.kanban-mode { grid-template-columns: minmax(0,1fr) 225px; }
+.workspace.flowchart-mode>.toolrail,
+.workspace.kanban-mode>.toolrail { display: none; }
+
+.board-mode-tab {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: #737b89;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.board-mode-tab:hover { background: #f4f5fa; color: #363e50; }
+.board-mode-tab.active { border-color: #dfe2ff; background: #eff0ff; color: #4855dd; }
+.mode-save-state { margin-left: auto; color: #788192; font-size: 10px; }
+
+.diagram-panel { display: flex; min-height: 0; flex: 1; flex-direction: column; background: #f5f6fa; }
+.diagram-toolbar { z-index: 2; display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-bottom: 1px solid #e4e7ee; background: #fff; }
+.diagram-add-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.diagram-toolbar button { min-height: 32px; padding: 0 10px; border: 1px solid #dfe2e8; border-radius: 7px; background: white; color: #424b5e; font: inherit; font-size: 10px; font-weight: 650; cursor: pointer; }
+.diagram-toolbar button:hover,.diagram-toolbar button.active { border-color: #5965e5; background: #f1f2ff; color: #4855dd; }
+.diagram-toolbar>span { margin-left: auto; color: #858c99; font-size: 10px; }
+.diagram-scroll { min-height: 0; flex: 1; overflow: auto; padding: 16px; }
+.diagram-graph { position: relative; width: 1600px; min-height: 900px; background-color: white; background-image: radial-gradient(#d8dbe2 1px,transparent 1px); background-size: 20px 20px; border: 1px solid #e5e8ee; border-radius: 8px; }
+.diagram-edges { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.diagram-node { position: absolute; z-index: 1; display: grid; place-items: center; padding: 9px 14px; border: 2px solid #5360d9; background: #f2f3ff; color: #2c3550; box-shadow: 0 4px 12px #28314b15; cursor: grab; touch-action: none; }
+.diagram-node:active { cursor: grabbing; }
+.diagram-node input { width: 100%; border: 0; outline: 0; background: transparent; color: inherit; text-align: center; font: inherit; font-size: 13px; font-weight: 650; cursor: text; }
+.diagram-node.flow-process { border-radius: 10px; }
+.diagram-node.flow-start { border-color: #2da77b; border-radius: 30px; background: #e9faf3; }
+.diagram-node.flow-decision { border-color: #e4a33d; background: #fff5dd; clip-path: polygon(50% 0,100% 50%,50% 100%,0 50%); box-shadow: none; }
+.diagram-node .decision-label { width: 68%; transform: rotate(-0deg); }
+.diagram-node .decision-label input { font-size: 12px; }
+.diagram-node-delete { position: absolute; top: -10px; right: -10px; width: 22px; height: 22px; border: 1px solid #e4e7ee; border-radius: 50%; background: #fff; color: #8d5660; font-size: 15px; line-height: 18px; opacity: 0; cursor: pointer; }
+.diagram-node:hover .diagram-node-delete,.diagram-node-delete:focus-visible { opacity: 1; }
+.diagram-node.source-selected { outline: 3px solid #5d6af34d; }
+.diagram-empty { position: absolute; top: 45%; left: 50%; width: 320px; transform: translate(-50%,-50%); color: #8a91a0; font-size: 13px; text-align: center; }
+
+.kanban-board { display: grid; min-height: 0; flex: 1; grid-template-columns: repeat(3,minmax(260px,1fr)); gap: 14px; overflow: auto; padding: 18px; background: #f5f6fa; }
+.kanban-column { display: flex; min-height: 300px; flex-direction: column; padding: 12px; border: 1px solid #e5e8ee; border-radius: 10px; background: #f9fafc; }
+.kanban-column-header { display: flex; align-items: center; gap: 8px; padding: 3px 2px 12px; }
+.kanban-column-header h2 { margin: 0; color: #343b49; font-size: 13px; }
+.kanban-column-header>span { display: grid; min-width: 21px; height: 21px; place-items: center; border-radius: 11px; background: #e9ebf1; color: #6e7685; font-size: 10px; }
+.column-in_progress .kanban-column-header>span { background: #fff0d4; color: #a46a13; }
+.column-done .kanban-column-header>span { background: #e4f7ee; color: #168253; }
+.kanban-add-form { display: flex; gap: 5px; margin-bottom: 10px; }
+.kanban-add-form input { min-width: 0; flex: 1; height: 35px; padding: 0 9px; border: 1px solid #e0e4ec; border-radius: 7px; outline-color: #5965e5; background: white; font: inherit; font-size: 11px; }
+.kanban-add-form button { width: 35px; border: 0; border-radius: 7px; background: #4855dd; color: white; font-size: 18px; cursor: pointer; }
+.kanban-add-form button:disabled { opacity: .45; cursor: default; }
+.kanban-task-list { display: flex; flex: 1; flex-direction: column; gap: 9px; }
+.kanban-task { padding: 11px; border: 1px solid #e4e7ee; border-radius: 8px; background: white; box-shadow: 0 2px 6px #20273608; cursor: grab; }
+.kanban-task:active { cursor: grabbing; }
+.kanban-task-top { display: flex; align-items: center; gap: 5px; }
+.kanban-task-title { min-width: 0; flex: 1; padding: 4px 2px; border: 0; outline-color: #5965e5; color: #333b4b; font: inherit; font-size: 12px; font-weight: 700; }
+.kanban-task-top button { border: 0; background: transparent; color: #9b6870; font-size: 16px; cursor: pointer; }
+.kanban-task textarea { box-sizing: border-box; width: 100%; min-height: 48px; margin-top: 6px; padding: 6px; border: 1px solid #eef0f4; border-radius: 5px; resize: vertical; color: #687182; font: inherit; font-size: 10px; }
+.kanban-assignee { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 8px; color: #888f9a; font-size: 10px; }
+.kanban-assignee select { max-width: 65%; padding: 5px; border: 1px solid #e4e7ee; border-radius: 5px; background: white; color: #535b68; font: inherit; font-size: 10px; }
+.kanban-drop-hint { margin: auto; padding: 16px 4px; color: #a0a6b0; font-size: 10px; text-align: center; }
+
+@media(max-width:800px) {
+  .board-modes { padding: 5px 8px; }
+  .board-mode-tab { padding: 0 8px; font-size: 10px; }
+  .diagram-toolbar { align-items: flex-start; flex-direction: column; }
+  .diagram-toolbar>span { margin-left: 0; }
+  .kanban-board { grid-template-columns: repeat(3,minmax(250px,80vw)); padding: 10px; }
+  .workspace.flowchart-mode,.workspace.kanban-mode { grid-template-columns: minmax(0,1fr); }
+}
